@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Syne, Space_Grotesk, DM_Sans } from "next/font/google";
 import "./globals.css";
 
+import Header from "@/components/layouts/header";
+import Footer from "@/components/layouts/footer";
+
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
@@ -23,13 +26,17 @@ export const metadata: Metadata = {
     "Portfolio de Théo Goujon, étudiant en développement web. Découvrez mes projets et mon parcours.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="fr"
       className={`${syne.variable} ${spaceGrotesk.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1 pt-20">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
