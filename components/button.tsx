@@ -33,8 +33,9 @@ export default function Button({
       onClick={onClick}
       disabled={disabled}
       className={`
-        ${fullWidth ? "w-full" : "w-fit m-10"}
-        rounded-xl px-14 py-3
+        ${fullWidth ? "w-full" : "w-fit"}
+        inline-flex items-center justify-center gap-5
+        rounded-xl px-8 py-3
         font-button font-medium
         text-sm min-[700px]:text-base lg:text-lg
         ${variants[variant]}

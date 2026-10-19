@@ -5,12 +5,15 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
+import Button from "@/components/button";
+import { ArrowDownToLine } from "lucide-react";
+
 const navigation = [
   { label: "À propos", id: "about-title" },
   { label: "Expérience", id: "experience-title" },
   { label: "Compétences", id: "skills-title" },
   { label: "Projet", id: "projects-title" },
-  { label: "Parcours", id: "journey-title" },
+  { label: "Parcours", id: "career-title" },
   { label: "Contact", id: "contact-title" },
 ];
 
@@ -37,7 +40,15 @@ export default function Header() {
     <header className="fixed top-0 left-0 z-[100] flex h-[100px] w-full items-center bg-header-footer-bg px-8">
       <Link
         href="/"
-        className="mr-auto font-body text-[40px] font-bold text-accent-text transition-transform duration-200 hover:scale-110 max-lg:text-[30px] max-md:text-2xl"
+        onClick={(e) => {
+          setOpen(false);
+          if (pathname === "/") {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            history.replaceState(null, "", "/");
+          }
+        }}
+        className="mr-auto font-body text-[40px] font-bold text-accent-text transition-transform duration-200 hover:scale-120 max-lg:text-[30px] max-md:text-2xl"
       >
         TG
       </Link>
@@ -86,6 +97,11 @@ export default function Header() {
             {label}
           </button>
         ))}
+
+        <Button onClick={() => console.log("Button clicked!")}>
+          <ArrowDownToLine size={30} />
+          CV
+        </Button>
       </nav>
     </header>
   );

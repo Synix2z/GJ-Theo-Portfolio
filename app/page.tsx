@@ -1,21 +1,28 @@
 "use client";
 
-import Title from "@/components/title";
-import Separator from "@/components/separator";
-import Button from "@/components/button";
+import Hero from "@/sections-main-page/hero";
+import About from "@/sections-main-page/about";
+import Experience from "@/sections-main-page/experience";
+import Skills from "@/sections-main-page/skills";
+import Projects from "@/sections-main-page/projects";
+import Career from "@/sections-main-page/career";
+import Contact from "@/sections-main-page/contact";
+
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
 
 export default function Home() {
   return (
-    <main>
-
-      {/* Test */}
-      <Title text="À Propos" id="about" />
-      <Title text="Expérience" id="experience" />
-      <Separator />
-      <Button onClick={() => console.log("Button clicked!")}>
-        Cliquez ici
-      </Button>
-      
+    <main className="">
+      <Hero />
+      <About/>
+      <Experience/>
+      <Skills/>
+      <Projects/>
+      <Career/>
+      <Contact/>
     </main>
   );
 }

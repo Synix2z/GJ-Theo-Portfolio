@@ -5,6 +5,9 @@
   --color-header-footer-bg: #161d2f;
   --color-main-text: #ffffff;
   --color-accent-text: #a78bfa;
+  --text-h1: clamp(2rem, 5vw, 3.5rem);
+  --text-h2: clamp(1.125rem, 2.5vw, 1.5rem);
+  --text-body: clamp(0.875rem, 1.5vw, 1.125rem);
 }
 
 @theme inline {
