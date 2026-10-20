@@ -38,6 +38,9 @@ export default function Button({
         rounded-xl px-8 py-3
         font-button font-medium
         text-sm min-[700px]:text-base lg:text-lg
+        transition-transform duration-200 ease-out
+        hover:scale-105 active:scale-95
+        disabled:hover:scale-100 disabled:active:scale-100
         ${variants[variant]}
       `}
     >

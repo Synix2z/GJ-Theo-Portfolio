@@ -104,8 +104,6 @@ export default function Contact() {
           </form>
         </div>
       </div>
-
-      <Separator />
     </section>
   );
 }

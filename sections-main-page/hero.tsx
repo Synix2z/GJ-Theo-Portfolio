@@ -15,7 +15,7 @@ export default function Hero() {
             Étudiant en BUT Informatique - IUT de Nevers
           </h2>
           <p className="mt-2 max-w-xl font-body text-body text-white">
-            Aujourd&apos;hui en 2ème année de BUT Informatique, je développe des
+            Aujourd&apos;hui en 3ème année de BUT Informatique, je développe des
             applications web full-stack.
           </p>
 
