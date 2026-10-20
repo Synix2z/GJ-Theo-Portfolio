@@ -16,6 +16,18 @@
   --font-button: var(--font-space-grotesk);
 }
 
+@keyframes skills-scroll {
+  to { transform: translateX(-50%); }
+}
+
+.skills-list {
+  animation: skills-scroll 80s linear infinite;
+}
+
+.skills-list:hover {
+  animation-play-state: paused;
+}
+
 body {
   background: var(--color-page-bg);
   color: var(--color-main-text);
