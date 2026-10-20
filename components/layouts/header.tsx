@@ -98,7 +98,7 @@ export default function Header() {
           </button>
         ))}
 
-        <Button onClick={() => console.log("Button clicked!")}>
+        <Button onClick={() => window.open("/Goujon_Theo_CV.pdf", "_blank", "noopener,noreferrer")}>
           <ArrowDownToLine size={30} />
           CV
         </Button>
