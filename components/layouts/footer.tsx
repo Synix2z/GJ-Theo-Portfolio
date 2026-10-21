@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex min-h-[75px] items-center justify-between gap-4 px-5 py-5 md:px-10 md:py-4 lg:px-[100px] max-md:flex-col">
         <nav className="flex flex-1 flex-col gap-2 max-md:items-center">
           <Link
-            href="/legal"
+            href="/legal-mentions"
             className="text-sm text-white transition-colors hover:text-accent-text active:text-accent-text lg:text-base"
           >
             Mentions légales

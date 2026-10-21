@@ -11,7 +11,7 @@ export default function About() {
             <div className="my-20 flex items-center px-8 sm:px-16 md:px-24 lg:px-8">
                 <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-10 text-left md:flex-row md:gap-16">
                     <Image
-                        src="/images/Lewis_Hamilton.png"
+                        src="/Lewis_Hamilton.png"
                         alt="Théo Goujon"
                         width={300}
                         height={300}
