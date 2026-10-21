@@ -9,7 +9,8 @@ export interface Project {
     accent: ProjectAccent;
     shortDescription: string;
     description: string;
-    image?: string;
+    image?: string; // image card
+    images?: string[]; // images carrousel
     languages: string[];
     duration: string;
     team: string;
@@ -28,7 +29,11 @@ export const projects: Project[] = [
         shortDescription: "Site d'enchères en ligne autour d'objets de célébrités.",
         description:
             "Projet récupéré d'une autre équipe dans le cadre de la SAE 3.1. L'objectif était d'améliorer et enrichir un site d'enchères en ligne permettant aux utilisateurs d'enchérir sur des objets ayant appartenu à des célébrités. Mon rôle s'est concentré sur la refonte complète du CSS et de l'interface visuelle.",
-        image: "",
+        image: "/images-projets/SAE_Bidstars/cover.png",
+        images: [
+            "/images-projets/SAE_Bidstars/cover.png",
+            "/images-projets/default.png",
+        ],
         languages: ["PHP", "HTML", "CSS", "JavaScript"],
         duration: "2 mois et demi",
         team: "4 étudiants",
@@ -46,3 +51,5 @@ export const projects: Project[] = [
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
+
+export const getProjectImages = (p: Project) => p.images?.length ? p.images : [p.image || DEFAULT_IMAGE];

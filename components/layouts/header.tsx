@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -12,7 +11,7 @@ const navigation = [
   { label: "À propos", id: "about-title" },
   { label: "Expérience", id: "experience-title" },
   { label: "Compétences", id: "skills-title" },
-  { label: "Projet", id: "projects-title" },
+  { label: "Projets", id: "projects-title" },
   { label: "Parcours", id: "career-title" },
   { label: "Contact", id: "contact-title" },
 ];

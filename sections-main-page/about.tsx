@@ -10,13 +10,15 @@ export default function About() {
 
             <div className="my-20 flex items-center px-8 sm:px-16 md:px-24 lg:px-8">
                 <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-10 text-left md:flex-row md:gap-16">
-                    <Image
-                        src="/Lewis_Hamilton.png"
-                        alt="Théo Goujon"
-                        width={300}
-                        height={300}
-                        className="h-48 w-48 shrink-0 rounded-full object-cover object-[90%_50%] md:h-64 md:w-64"
-                    />
+                    <div className="relative aspect-square w-56 shrink-0 overflow-hidden rounded-full sm:w-64 md:w-72 lg:w-80">
+                        <Image
+                            src="/Lewis_Hamilton_Ferrari.png"
+                            alt="Lewis Hamilton au volant de sa Ferrari"
+                            fill
+                            sizes="(min-width: 1024px) 320px, (min-width: 768px) 288px, (min-width: 640px) 256px, 224px"
+                            className="object-cover object-[100%_100%]"
+                        />
+                    </div>
 
                     <div>
                         <p className="mt-2 font-body text-body text-accent-text">
