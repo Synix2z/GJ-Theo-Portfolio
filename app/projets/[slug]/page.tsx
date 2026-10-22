@@ -83,11 +83,11 @@ export default async function ProjectPage({ params }: Props) {
 
       <ProjectCarousel images={getProjectImages(project)} title={project.title} />
 
-      <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-3">
+      <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10">
         {info.map(([label, value]) => (
-          <div key={label} className="bg-[#161D2F] p-4">
+          <div key={label} className="bg-[#161D2F] p-4 text-left">
             <dt className="text-xs uppercase tracking-wide text-accent-text">{label}</dt>
-            <dd className="mt-1">{value}</dd>
+            <dd className="mt-1 text-sm">{value}</dd>
           </div>
         ))}
       </dl>
