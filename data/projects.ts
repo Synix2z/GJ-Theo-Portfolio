@@ -29,9 +29,9 @@ export const projects: Project[] = [
         shortDescription: "Mon portfolio pour me présenter et exposer mes projets.",
         description:
             "Portfolio personnel conçu pour me présenter et regrouper mes projets universitaires et personnels. Le site repose sur une architecture en composants réutilisables, un design system cohérent (polices, couleurs et variables centralisées) et des maquettes réalisées au préalable sur Figma. Chaque projet dispose de sa propre page détaillée avec carrousel d'images si besoin.",
-        image: "/images-projets/Portfolio/cover.png",
+        image: "/images-projets/Portfolio/Cover.png",
         images: [
-            "/images-projets/Portfolio/cover.png",
+            "/images-projets/Portfolio/Cover.png",
             "/images-projets/Portfolio/CV.png",
             "/images-projets/Portfolio/Competences&Projets.png",
             "/images-projets/Portfolio/DetailsProjet.png",
@@ -66,9 +66,9 @@ export const projects: Project[] = [
         shortDescription: "Site vitrine dynamique de mon profil de joueur Rise of Kingdoms.",
         description:
             "Site web personnel pensé pour présenter mon profil de joueur sur Rise of Kingdoms pour remplacer de simples captures d'écran. Il propose des statistiques animées, une frise chronologique, mes objectifs actuels ainsi qu'une page d'outils avec calculatrice, le tout sur un design system cohérent avec une palette de violet.",
-        image: "/images-projets/ROK-Portfolio/cover.png",
+        image: "/images-projets/ROK-Portfolio/Cover.png",
         images: [
-            "/images-projets/ROK-Portfolio/cover.png",
+            "/images-projets/ROK-Portfolio/Cover.png",
             "/images-projets/ROK-Portfolio/Commandants.png",
             "/images-projets/ROK-Portfolio/Timeline.png",
             "/images-projets/ROK-Portfolio/Stats.png",
