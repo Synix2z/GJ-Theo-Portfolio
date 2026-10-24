@@ -1,30 +1,50 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Vérifie le format de l'e-mail
+const isEmail = (v: string) =>
+  v.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
-const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+// Eviter l'injection de code dans le mail
 const escapeHtml = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+// Ne garde que du texte
+const clean = (v: unknown, max: number) =>
+  typeof v === "string" ? v.trim().slice(0, max) : "";
+
 export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
-  if (!body) return NextResponse.json({ error: "Requête invalide" }, { status: 400 });
+  if (!body || typeof body !== "object") {
+    return NextResponse.json({ error: "Requête invalide" }, { status: 400 });
+  }
 
-  const { name, email, subject, message, website } = body as Record<string, string>;
+  // Honeypot : champ caché que seuls les bots remplissent
+  if (body.website) return NextResponse.json({ ok: true });
 
-  // Honeypot : on fait semblant que c'est OK pour ne pas informer les bots
-  if (website) return NextResponse.json({ ok: true });
+  // Nettoyage des champs avec une longueur maximale chacun
+  const name = clean(body.name, 100);
+  const email = clean(body.email, 254);
+  const subject = clean(body.subject, 150).replace(/[\r\n]+/g, " ");
+  const message = clean(body.message, 5000);
 
-  if (!name?.trim() || !subject?.trim() || !message?.trim() || !isEmail(email ?? "")) {
+  // Validation : aucun champ vide, e-mail au bon format
+  if (!name || !subject || !message || !isEmail(email)) {
     return NextResponse.json({ error: "Champs invalides" }, { status: 400 });
   }
 
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.CONTACT_TO_EMAIL;
+  if (!apiKey || !to) {
+    return NextResponse.json({ error: "Envoi impossible" }, { status: 500 });
+  }
+
+  const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from: "Site Portfolio <onboarding@resend.dev>",
-    to: process.env.CONTACT_TO_EMAIL!,
+    to,
     replyTo: email,
-    subject: `[Portfolio] ${subject.slice(0, 150)}`,
+    subject: `[Portfolio] ${subject}`,
     html: `
       <p><strong>Nom :</strong> ${escapeHtml(name)}</p>
       <p><strong>Email :</strong> ${escapeHtml(email)}</p>

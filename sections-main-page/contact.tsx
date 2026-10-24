@@ -43,7 +43,10 @@ export default function Contact() {
           <p className="font-body text-body text-white">
             Une question, une offre, ou une opportunité ? N&apos;hésite pas à me
             contacter via le formulaire ci-dessous ou à l&apos;adresse mail
-            suivante : tgou58@gmail.com
+            suivante :{" "}
+            <a href="mailto:tgou58@gmail.com" className="text-accent-text underline">
+              tgou58@gmail.com
+            </a>
           </p>
 
           <form
